@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background: #f0f2f5;
+    padding: 2rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.draggable-items {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.drop-zone {
+    background: #e9ecef;
+    padding: 2rem;
+    border-radius: 10px;
+    min-height: 400px;
+    border: 3px dashed #adb5bd;
+    transition: all 0.3s ease;
+}
+
+.drop-zone.drag-over {
+    background: #d0ebff;
+    border-color: #339af0;
+    transform: scale(1.02);
+}
+
+.draggable-image {
+    width: 150px;
+    height: 150px;
+    margin: 1rem;
+    cursor: move; /* Indicates item is draggable */
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.draggable-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.draggable-image.dragging {
+    opacity: 0.5;
+    cursor: grabbing;
+}
+
+.drop-zone-text {
+    text-align: center;
+    color: #6c757d;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.dropped-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dropped-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.dropped-image:focus {
+    outline: 3px solid #339af0;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+@keyframes dropAnimation {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Snap to grid */
+.drop-zone {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+    align-items: start;
+    justify-items: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+    align-items: start;
+    justify-items: center;
+}
